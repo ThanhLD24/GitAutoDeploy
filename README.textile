@@ -6,7 +6,7 @@ This is a small HTTP server written in python.
 It allows you to have a version of your project installed, that will be updated automatically on each Github push.
 
 To set it up, do the following:
-* install python
+* install python (this project use python 2.7.15)
 * copy the GitAutoDeploy.conf.json.example to GitAutoDeploy.conf.json. This file will be gitignored and can be environment specific.
 * enter the matching for your project(s) in the GitAutoDeploy.conf.json file
 * start the server by typing "python GitAutoDeploy.py" 
