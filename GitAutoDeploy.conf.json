@@ -1,0 +1,9 @@
+{
+	"port": 8888, 
+	"repositories": 
+	[{
+		"url": "https://github.com/ThanhLD24/bemastergit", 
+		"path": "E:/Project/Example/test-hooks/deploy/des/bemastergit",
+		"deploy": "git pull origin master"
+	}]
+}
