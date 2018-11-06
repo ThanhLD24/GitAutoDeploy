@@ -1,0 +1,10 @@
+{
+	"port": 8888, 
+	"repositories": 
+	[{
+		"url": "http://123.31.38.152:7990/projects/EINV/repos/test-web-hook/", 
+		"path": "E:/Project/Example/test-web-hook-des/test-web-hook",
+		"deploy": "git pull origin deploy",
+		"branch" : "deploy"
+	}]
+}
