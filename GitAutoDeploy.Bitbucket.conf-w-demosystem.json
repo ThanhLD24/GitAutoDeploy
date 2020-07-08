@@ -1,0 +1,32 @@
+{
+	"port": 8888, 
+	"repositories": 
+	[{
+		"url": "http://123.31.38.152:7990/projects/EINV/repos/easyinvoice-admin-deploy/", 
+		"path": "C:/HD/APP/admin-git.softdreams.vn1",
+		"deploy": "git pull origin test-deploy",
+		"branch" : "test-deploy",
+		"app-name" : "admin.softdreams.vn"
+	},
+	{
+		"url": "http://123.31.38.152:7990/projects/EINV/repos/easyinvoice-site-deploy/", 
+		"path": "C:/HD/APP/site-git.softdreams.vn",
+		"deploy": "git pull origin test",
+		"branch" : "test",
+		"app-name" : "site.softdreams.vn"
+	},
+	{
+		"url": "http://123.31.38.152:7990/projects/EINV/repos/easyinvoice-admin-deploy/", 
+		"path": "E:/HD/APP/admin-git.softdreams.vn1",
+		"deploy": "git pull origin test-deploy",
+		"branch" : "test-deploy",
+		"app-name" : "admin208.softdreams.vn"
+	},
+	{
+		"url": "http://123.31.38.152:7990/projects/EINV/repos/easyinvoice-site-deploy/", 
+		"path": "E:/HD/APP/site-git.softdreams.vn",
+		"deploy": "git pull origin test",
+		"branch" : "test",
+		"app-name" : "site208.softdreams.vn"
+	}]
+}

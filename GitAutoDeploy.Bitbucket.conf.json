@@ -1,10 +1,25 @@
 {
-	"port": 8888, 
+	"port": 8899, 
 	"repositories": 
 	[{
-		"url": "http://123.31.38.152:7990/projects/EINV/repos/test-web-hook/", 
-		"path": "E:/Project/Example/test-web-hook-des/test-web-hook",
-		"deploy": "git pull origin deploy",
-		"branch" : "deploy"
+		"url": "http://123.31.38.151:7990/projects/EINV/repos/easyinvoice-admin-deploy/", 
+		"path": "C:/HD/APP/admin-git.softdreams.vn1",
+		"deploy": "git pull origin test-deploy",
+		"branch" : "test-deploy",
+		"app-name" : "admin.softdreams.vn"
+	},
+	{
+		"url": "http://123.31.38.151:7990/projects/EINV/repos/easyinvoice-site-deploy/", 
+		"path": "C:/HD/APP/site-git.softdreams.vn",
+		"deploy": "git pull origin test",
+		"branch" : "test",
+		"app-name" : "site.softdreams.vn"
+	},
+	{
+		"url": "http://123.31.38.151:7990/projects/CRM/repos/webapp/", 
+		"path": "E:/CRM/webapp",
+		"deploy": "git pull origin crm-test",
+		"branch" : "crm-test",
+		"app-name" : ""
 	}]
 }

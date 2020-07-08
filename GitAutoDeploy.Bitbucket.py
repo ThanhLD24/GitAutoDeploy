@@ -2,8 +2,9 @@
 
 import json, urlparse, sys, os
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-from subprocess import call
+from subprocess import call, Popen
 import shlex
+import time
 
 class GitAutoDeploy(BaseHTTPRequestHandler):
 
@@ -94,7 +95,19 @@ class GitAutoDeploy(BaseHTTPRequestHandler):
                         #call(['cd "' + path + '" && ' + repository['deploy']], shell=True) #origin
                         os.chdir(path) #dir instead of cd
                         #call(['git', 'pull', 'origin', 'master'])
-                        call(shlex.split(repository['deploy']))                        
+                        #call(["C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\powershell.exe", ". \"./SamplePowershell\";", "&hello"])
+                        powershellPath = 'C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\powershell.exe'
+                        appName = repository['app-name']
+                        if appName != '':
+                            Popen(powershellPath +' Stop-WebAppPool -Name "'+ appName +'"')
+                            Popen(powershellPath +' Stop-WebSite -Name "'+ appName +'"')
+                            time.sleep(30)
+                            call(shlex.split(repository['deploy']))
+                            Popen(powershellPath +' Start-WebSite -Name "'+ appName +'"')
+                            Popen(powershellPath +' Start-WebAppPool -Name "'+ appName +'"')
+                        else:
+						    print 'CRM is deploying...'
+						    call(shlex.split(repository['deploy']))
                     elif not self.quiet:
                         print 'Push to different branch (%s != %s), not deploying' % (branch, self.branch)
                 break
@@ -119,7 +132,7 @@ def main():
             print 'Github Autodeploy Service v0.2 started'
         else:
             print 'Github Autodeploy Service v 0.2 started in daemon mode'
-             
+        print 'ThanhLD report PORT: %s' % (GitAutoDeploy.getConfig()['port'])
         server = HTTPServer(('', GitAutoDeploy.getConfig()['port']), GitAutoDeploy)
         server.serve_forever()
     except (KeyboardInterrupt, SystemExit) as e:
