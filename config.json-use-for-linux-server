@@ -1,0 +1,63 @@
+{
+  // this config used to below gitautodeploy source
+  // https://github.com/olipo186/Git-Auto-Deploy
+  // which deployed on linux server (103.1.210.179)
+  // HTTP server options
+  "http-enabled": true,
+  "http-host": "0.0.0.0",
+  "http-port": 8089,
+
+  // HTTPS server options
+  //"https-enabled": false,
+  //"https-host": "0.0.0.0",
+  //"https-port": 8002,
+
+  // Web socket server options (used by web UI for real time updates)
+  //"wss-enabled": false,
+  //"wss-host": "0.0.0.0",
+  //"wss-port": 8003,
+
+  // Web user interface options
+  //"web-ui-enabled": false,
+  //"web-ui-username": null,
+  //"web-ui-password": null,
+  "web-ui-whitelist": ["127.0.0.1", "10.200.100.1", "103.1.210.179"],
+
+  // TLS/SSL cert (necessary for HTTPS and web socket server to work)
+  //"ssl-key": null,  // If specified, holds the private key
+  //"ssl-cert": "cert.pem",  // Holds the public key or both the private and public keys
+
+  // File to store a copy of the console output
+  "log-file": "~/gitautodeploy.log",
+
+  // File to store the process id (pid)
+  "pid-file": "~/.gitautodeploy.pid",
+
+  // Record all log levels by default
+  "log-level": "INFO",
+
+  // Deploy commands that should be executed for all projects
+  //"global_deploy": [
+  //  "echo Deploy started!",
+  //  "echo Deploy completed!"
+  //],
+
+  "repositories": [
+    {
+      "url": "http://thanhld@123.31.38.151:7990/scm/crm/invoice-template-creator.git",
+      "branch": "deploy_test",
+      "remote": "origin",
+      "match-url" : "invoice-template-creator",
+      "path": "/var/www/testonline.softdreams.vn/",
+      "deploy": "deploying invoice template creator"
+    },
+        {
+      "url": "http://thanhld@123.31.38.151:7990/scm/crm/webapp.git",
+      "branch": "test",
+      "remote": "origin",
+      "match-url": "webapp",
+      "path": "/var/www/crm.softdreams.vn/",
+      "deploy": "deploying crm webapp"
+    }
+  ]
+}
